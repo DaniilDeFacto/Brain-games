@@ -3,15 +3,19 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
+    public static final int ROUNDS_COUNT = 3;
+    public static final int NUMBER_RANGE = 100;
+    public static final int NUMBERS_COUNT = 10;
+
     public static void startGame(String userName) {
         System.out.println("What number is missing in the progression?");
-        for (var i = 1; i <= 3; i++) {
-            int startNumber = (int) (Math.random() * 30);
-            int step = (int) (Math.random() * 10) + 1;
+        for (var i = 1; i <= ROUNDS_COUNT; i++) {
+            int startNumber = (int) (Math.random() * NUMBER_RANGE);
+            int step = (int) (Math.random() * NUMBER_RANGE) + 1;
             String task = Integer.toString(startNumber);
             String correctAnswer = "";
-            int gap = (int) (Math.random() * 9);
-            for (var j = 0; j < 9; j++) {
+            int gap = (int) (Math.random() * NUMBERS_COUNT) + 1;
+            for (var j = 1; j < NUMBERS_COUNT; j++) {
                 startNumber += step;
                 if (j == gap) {
                     task += " " + "..";

@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int ROUNDS_COUNT = 3;
     public static void gameLogic(String userName, String task, String correctAnswer, int i) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Question: " + task);
@@ -15,7 +16,7 @@ public class Engine {
                     + "\nLet's try again, " + userName + "!");
             System.exit(0);
         }
-        if (i == 3) {
+        if (i == ROUNDS_COUNT) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
