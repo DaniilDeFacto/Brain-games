@@ -10,9 +10,9 @@ public class Prime {
         String[][] terms = new String[3][2];
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             int number = (int) (Math.random() * NUMBER_RANGE);
-            var prime = true;
+            var prime = number >= 2;
             for (var j = 2; j <= number / 2; j++) {
-                if (number % j == 0 || number <= 1) {
+                if (number % j == 0) {
                     prime = false;
                     break;
                 }
