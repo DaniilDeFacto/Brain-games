@@ -7,7 +7,7 @@ public class Prime {
     public static final int NUMBER_RANGE = 100;
     public static void startGame() {
         var rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] terms = new String[3][2];
+        String[][] terms = new String[ROUNDS_COUNT][2];
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             int number = (int) (Math.random() * NUMBER_RANGE);
             var prime = number >= 2;

@@ -8,7 +8,7 @@ public class Calc {
     public static final int OPERATOR_RANGE = 3;
     public static void startGame() {
         var rule = "What is the result of the expression?";
-        String[][] terms = new String[3][2];
+        String[][] terms = new String[ROUNDS_COUNT][2];
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             int operand1 = (int) (Math.random() * NUMBER_RANGE);
             int operand2 = (int) (Math.random() * NUMBER_RANGE);

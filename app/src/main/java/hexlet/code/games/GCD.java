@@ -7,7 +7,7 @@ public class GCD {
     public static final int NUMBER_RANGE = 100;
     public static void startGame() {
         var rule = "Find the greatest common divisor of given numbers.";
-        String[][] terms = new String[3][2];
+        String[][] terms = new String[ROUNDS_COUNT][2];
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             int number1 = (int) (Math.random() * NUMBER_RANGE) + 1;
             int number2 = (int) (Math.random() * NUMBER_RANGE) + 1;

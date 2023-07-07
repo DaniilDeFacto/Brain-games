@@ -9,7 +9,7 @@ public class Progression {
 
     public static void startGame() {
         var rule = "What number is missing in the progression?";
-        String[][] terms = new String[3][2];
+        String[][] terms = new String[ROUNDS_COUNT][2];
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             int startNumber = (int) (Math.random() * NUMBER_RANGE);
             int step = (int) (Math.random() * NUMBER_RANGE) + 1;
