@@ -32,22 +32,21 @@ public class App {
                 Cli.greet();
                 break;
             case EVEN:
-                Even.startGame(Cli.greet());
+                Even.startGame();
                 break;
             case CALC:
-                Calc.startGame(Cli.greet());
+                Calc.startGame();
                 break;
             case GCP:
-                GCD.startGame(Cli.greet());
+                GCD.startGame();
                 break;
             case PROGRESSION:
-                Progression.startGame(Cli.greet());
+                Progression.startGame();
                 break;
             case PRIME:
-                Prime.startGame(Cli.greet());
+                Prime.startGame();
                 break;
             default:
-                break;
         }
     }
 }
