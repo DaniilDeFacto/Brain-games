@@ -11,7 +11,7 @@ public class Prime {
             int number = (int) (Math.random() * NUMBER_RANGE);
             var prime = true;
             for (var j = 2; j <= number / 2; j++) {
-                if (number % j == 0) {
+                if (number % j == 0 || number == 0) {
                     prime = false;
                     break;
                 }
