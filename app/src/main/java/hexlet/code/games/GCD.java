@@ -8,8 +8,8 @@ public class GCD {
     public static void startGame(String userName) {
         System.out.println("Find the greatest common divisor of given numbers.");
         for (var i = 1; i <= ROUNDS_COUNT; i++) {
-            int number1 = (int) (Math.random() * NUMBER_RANGE);
-            int number2 = (int) (Math.random() * NUMBER_RANGE);
+            int number1 = (int) (Math.random() * NUMBER_RANGE) + 1;
+            int number2 = (int) (Math.random() * NUMBER_RANGE) + 1;
             String task = number1 + " " + number2;
             int minNumber = Math.min(number1, number2);
             String correctAnswer = "";
