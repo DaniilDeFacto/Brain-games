@@ -11,22 +11,18 @@ public class Engine {
         String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(rule);
-        var winsCount = 0;
-        for (var i = 0; i < ROUNDS_COUNT; i++) {
-            System.out.println("Question: " + terms[i][0]);
+        for (var roundData : terms) {
+            System.out.println("Question: " + roundData[0]);
             System.out.print("Your answer: ");
             String answer = scanner.next();
-            if (answer.equalsIgnoreCase(terms[i][1])) {
+            if (answer.equalsIgnoreCase(roundData[1])) {
                 System.out.println("Correct!");
-                winsCount += 1;
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
-                        + terms[i][1] + "'." + "\nLet's try again, " + userName + "!");
-                break;
+                        + roundData[1] + "'." + "\nLet's try again, " + userName + "!");
+                return;
             }
         }
-        if (winsCount == ROUNDS_COUNT) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+        System.out.println("Congratulations, " + userName + "!");
     }
 }
