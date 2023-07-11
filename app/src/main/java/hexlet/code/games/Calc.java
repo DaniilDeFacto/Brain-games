@@ -10,25 +10,33 @@ public class Calc {
         var rule = "What is the result of the expression?";
         String[][] terms = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int operand1 = Utils.generateNumber(1, NUMBER_RANGE);
-            int operand2 = Utils.generateNumber(1, NUMBER_RANGE);
-            int operator = Utils.generateNumber(0, OPERATOR_RANGE);
-            switch (operator) {
-                case 0:
-                    terms[i][0] = operand1 + " + " + operand2;
-                    terms[i][1] = Integer.toString(operand1 + operand2);
-                    break;
-                case 1:
-                    terms[i][0] = operand1 + " - " + operand2;
-                    terms[i][1] = Integer.toString(operand1 - operand2);
-                    break;
-                case 2:
-                    terms[i][0] = operand1 + " * " + operand2;
-                    terms[i][1] = Integer.toString(operand1 * operand2);
-                    break;
-                default:
-            }
+            terms[i] = generateRoundData();
         }
         Engine.gameLogic(rule, terms);
+    }
+
+    public static String[] generateRoundData() {
+        String[] roundData = new String[2];
+        int operand1 = Utils.generateNumber(1, NUMBER_RANGE);
+        int operand2 = Utils.generateNumber(1, NUMBER_RANGE);
+        int operator = Utils.generateNumber(0, OPERATOR_RANGE);
+        roundData[0] = formatQuestion(operand1, operand2, operator);
+        roundData[1] = Integer.toString(calculate(operand1, operand2, operator));
+        return roundData;
+    }
+
+    public static String formatQuestion(int operand1, int operand2, int operator) {
+        return operand1 + " " + "+-*".charAt(operator) + " " + operand2;
+    }
+
+    public static int calculate(int operand1, int operand2, int operator) {
+        switch (operator) {
+            case 0:
+                return operand1 + operand2;
+            case 1:
+                return operand1 - operand2;
+            default:
+                return operand1 * operand2;
+        }
     }
 }

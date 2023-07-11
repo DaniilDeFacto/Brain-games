@@ -9,17 +9,29 @@ public class GCD {
         var rule = "Find the greatest common divisor of given numbers.";
         String[][] terms = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int number1 = Utils.generateNumber(1, NUMBER_RANGE);
-            int number2 = Utils.generateNumber(1, NUMBER_RANGE);
-            terms[i][0] = number1 + " " + number2;
-            int minNumber = Math.min(number1, number2);
-            for (var j = minNumber; j >= 1; j--) {
-                if (number1 % j == 0 && number2 % j == 0) {
-                    terms[i][1] = Integer.toString(j);
-                    break;
-                }
-            }
+            terms[i] = generateRoundData();
         }
         Engine.gameLogic(rule, terms);
+    }
+
+    public static String[] generateRoundData() {
+        String[] roundData = new String[2];
+        int number1 = Utils.generateNumber(1, NUMBER_RANGE);
+        int number2 = Utils.generateNumber(1, NUMBER_RANGE);
+        roundData[0] = number1 + " " + number2;
+        roundData[1] = getGCD(number1, number2);
+        return roundData;
+    }
+
+    public static String getGCD(int number1, int number2) {
+        int minNumber = Math.min(number1, number2);
+        String gCD = "";
+        for (var i = minNumber; i >= 1; i--) {
+            if (number1 % i == 0 && number2 % i == 0) {
+                gCD = Integer.toString(i);
+                break;
+            }
+        }
+        return gCD;
     }
 }

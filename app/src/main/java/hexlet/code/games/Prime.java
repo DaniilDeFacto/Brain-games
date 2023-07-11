@@ -9,17 +9,27 @@ public class Prime {
         var rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] terms = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int number = Utils.generateNumber(1, NUMBER_RANGE);
-            var prime = number >= 2;
-            for (var j = 2; j <= number / 2; j++) {
-                if (number % j == 0) {
-                    prime = false;
-                    break;
-                }
-            }
-            terms[i][0] = Integer.toString(number);
-            terms[i][1] = prime ? "yes" : "no";
+            terms[i] = generateRoundData();
         }
         Engine.gameLogic(rule, terms);
+    }
+
+    public static String[] generateRoundData() {
+        String[] roundData = new String[2];
+        int number = Utils.generateNumber(1, NUMBER_RANGE);
+        roundData[0] = Integer.toString(number);
+        roundData[1] = isPrime(number);
+        return roundData;
+    }
+
+    public static String isPrime(int number) {
+        var prime = number >= 2;
+        for (var j = 2; j <= number / 2; j++) {
+            if (number % j == 0) {
+                prime = false;
+                break;
+            }
+        }
+        return prime ? "yes" : "no";
     }
 }

@@ -9,10 +9,20 @@ public class Even {
         var rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[][] terms = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int number = Utils.generateNumber(1, NUMBER_RANGE);
-            terms[i][0] = Integer.toString(number);
-            terms[i][1] = number % 2 == 0 ? "yes" : "no";
+            terms[i] = generateRoundData();
         }
         Engine.gameLogic(rule, terms);
+    }
+
+    public static String[] generateRoundData() {
+        String[] roundData = new String[2];
+        int number = Utils.generateNumber(1, NUMBER_RANGE);
+        roundData[0] = Integer.toString(number);
+        roundData[1] = isEven(number);
+        return roundData;
+    }
+
+    public static String isEven(int number) {
+        return number % 2 == 0 ? "yes" : "no";
     }
 }
