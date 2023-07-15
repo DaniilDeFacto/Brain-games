@@ -5,7 +5,8 @@ import hexlet.code.Utils;
 
 public class Progression {
     public static final int NUMBER_RANGE = 20;
-    public static final int NUMBERS_COUNT = 9;
+    public static final int MIN_LENGTH = 5;
+    public static final int MAX_LENGTH = 10;
 
     public static void startGame() {
         var rule = "What number is missing in the progression?";
@@ -20,22 +21,20 @@ public class Progression {
         String[] roundData = new String[2];
         int startNumber = Utils.generateNumber(1, NUMBER_RANGE);
         int step = Utils.generateNumber(1, NUMBER_RANGE);
-        int gap = Utils.generateNumber(0, NUMBERS_COUNT);
-        roundData[0] = getProgression(startNumber, step, gap);
-        roundData[1] = Integer.toString(startNumber + step * (gap + 1));
+        int length = Utils.generateNumber(MIN_LENGTH, MAX_LENGTH);
+        String[] array = getProgression(startNumber, step, length);
+        int gap = Utils.generateNumber(0, length - 1);
+        roundData[1] = array[gap];
+        array[gap] = "..";
+        roundData[0] = String.join(" ", array);
         return roundData;
     }
 
-    public static String getProgression(int startNumber, int step, int gap) {
-        var progression = Integer.toString(startNumber);
-        for (var j = 0; j < NUMBERS_COUNT; j++) {
-            startNumber += step;
-            if (j == gap) {
-                progression += " " + "..";
-            } else {
-                progression += " " + startNumber;
-            }
+    public static String[] getProgression(int startNumber, int step, int length) {
+        String[] array = new String[length];
+        for (var i = 0; i < length; i++) {
+            array[i] = Integer.toString(startNumber + step * i);
         }
-        return progression;
+        return array;
     }
 }

@@ -19,16 +19,16 @@ public class GCD {
         int number1 = Utils.generateNumber(1, NUMBER_RANGE);
         int number2 = Utils.generateNumber(1, NUMBER_RANGE);
         roundData[0] = number1 + " " + number2;
-        roundData[1] = getGCD(number1, number2);
+        roundData[1] = Integer.toString(getGCD(number1, number2));
         return roundData;
     }
 
-    public static String getGCD(int number1, int number2) {
+    public static int getGCD(int number1, int number2) {
         int minNumber = Math.min(number1, number2);
-        String gCD = "";
+        int gCD = 1;
         for (var i = minNumber; i >= 1; i--) {
             if (number1 % i == 0 && number2 % i == 0) {
-                gCD = Integer.toString(i);
+                gCD = i;
                 break;
             }
         }

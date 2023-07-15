@@ -18,11 +18,11 @@ public class Even {
         String[] roundData = new String[2];
         int number = Utils.generateNumber(1, NUMBER_RANGE);
         roundData[0] = Integer.toString(number);
-        roundData[1] = isEven(number);
+        roundData[1] = isEven(number) ? "yes" : "no";
         return roundData;
     }
 
-    public static String isEven(int number) {
-        return number % 2 == 0 ? "yes" : "no";
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

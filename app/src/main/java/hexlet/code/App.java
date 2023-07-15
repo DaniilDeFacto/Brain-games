@@ -47,6 +47,7 @@ public class App {
                 Prime.startGame();
                 break;
             default:
+                throw new Error("Unknown 'choice' value: " + choice);
         }
     }
 }

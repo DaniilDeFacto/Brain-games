@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 
 public class Calc {
     public static final int NUMBER_RANGE = 100;
-    public static final int OPERATOR_RANGE = 3;
+    public static final int OPERATOR_RANGE = 2;
     public static void startGame() {
         var rule = "What is the result of the expression?";
         String[][] terms = new String[Engine.ROUNDS_COUNT][2];
@@ -35,8 +35,10 @@ public class Calc {
                 return operand1 + operand2;
             case 1:
                 return operand1 - operand2;
-            default:
+            case 2:
                 return operand1 * operand2;
+            default:
+                throw new Error("Unknown 'operator' value: " + operator);
         }
     }
 }

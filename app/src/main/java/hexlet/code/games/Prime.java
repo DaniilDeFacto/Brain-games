@@ -18,11 +18,11 @@ public class Prime {
         String[] roundData = new String[2];
         int number = Utils.generateNumber(1, NUMBER_RANGE);
         roundData[0] = Integer.toString(number);
-        roundData[1] = isPrime(number);
+        roundData[1] = isPrime(number) ? "yes" : "no";
         return roundData;
     }
 
-    public static String isPrime(int number) {
+    public static boolean  isPrime(int number) {
         var prime = number >= 2;
         for (var j = 2; j <= number / 2; j++) {
             if (number % j == 0) {
@@ -30,6 +30,6 @@ public class Prime {
                 break;
             }
         }
-        return prime ? "yes" : "no";
+        return prime;
     }
 }
