@@ -30,15 +30,11 @@ public class Calc {
     }
 
     public static int calculate(int operand1, int operand2, int operator) {
-        switch (operator) {
-            case 0:
-                return operand1 + operand2;
-            case 1:
-                return operand1 - operand2;
-            case 2:
-                return operand1 * operand2;
-            default:
-                throw new Error("Unknown 'operator' value: " + operator);
-        }
+        return switch (operator) {
+            case 0 -> operand1 + operand2;
+            case 1 -> operand1 - operand2;
+            case 2 -> operand1 * operand2;
+            default -> throw new Error("Unknown 'operator' value: " + operator);
+        };
     }
 }

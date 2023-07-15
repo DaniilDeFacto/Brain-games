@@ -28,26 +28,13 @@ public class App {
         System.out.print("Your choice: ");
         int choice = Integer.parseInt(scanner.next());
         switch (choice) {
-            case GREET:
-                Cli.greet();
-                break;
-            case EVEN:
-                Even.startGame();
-                break;
-            case CALC:
-                Calc.startGame();
-                break;
-            case GCP:
-                GCD.startGame();
-                break;
-            case PROGRESSION:
-                Progression.startGame();
-                break;
-            case PRIME:
-                Prime.startGame();
-                break;
-            default:
-                throw new Error("Unknown 'choice' value: " + choice);
+            case GREET -> Cli.greet();
+            case EVEN -> Even.startGame();
+            case CALC -> Calc.startGame();
+            case GCP -> GCD.startGame();
+            case PROGRESSION -> Progression.startGame();
+            case PRIME -> Prime.startGame();
+            default -> throw new Error("Unknown 'choice' value: " + choice);
         }
     }
 }
