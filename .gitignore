@@ -1,4 +1,4 @@
-.gradle
+app/.gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
@@ -49,9 +49,6 @@ bin/
 build
 
 **/logs/
-
-.settings
 bin
 .project*
-.classpath
 .idea/

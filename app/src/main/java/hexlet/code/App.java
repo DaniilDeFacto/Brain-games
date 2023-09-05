@@ -15,6 +15,7 @@ public class App {
     public static final int GCP = 4;
     public static final int PROGRESSION = 5;
     public static final int PRIME = 6;
+    public static final int EXIT = 0;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.\n"
@@ -34,6 +35,7 @@ public class App {
             case GCP -> GCD.startGame();
             case PROGRESSION -> Progression.startGame();
             case PRIME -> Prime.startGame();
+            case EXIT -> { }
             default -> throw new Error("Unknown 'choice' value: " + choice);
         }
     }
